@@ -1,32 +1,111 @@
+#commentaires#
 
-
-personnnage(nom, type) 
+entity(nom,type)
   nom
-  type
+  classe
   pv max
-  pv 
+  pv
+  mp max 
   mp
   force
-  equipement_actif
+  armure
+    nom
+    defence
+  arme
+    nom
+    force
   liste des pouvoirs
-  deffence
-  inventaire
+    pouvoir
+      nom
+      force
+      cost
+  defence
   emplacement
+
+  methodes: 
+  combat(action, cible, player, competence=null) 
+    action: #remove defence status#
+      attaque:
+        normale #cible.hp -= player.force + player.arme.force - cible.armure.defence#
+        competence #cible.hp -= competence.force# #player.mp -= competence.cost#
+      defence #player.defence = player.defence * 2#
+      objet:
+        heal #soigne Xpv ou X%pv# #consomme 1 potion#
+      fuite #40% de chance de fuite#
+
+      
+
+player(entity) 
+  inventaire
   argent
   lvl
+  potions
+  exp
 
-methode : combat(type_attaque, adversaire, accesoire)
-          changement(equiepement)
-          deplacement(x,y)
+monstre(entity)
+  ...
+
+classe #barbare, tank, mage, monstre, boss, ...#
+  liste des pouvoirs
+    pouvoir
+      nom
+      force
+      cost
+
+  changement(equipement)
+    coucou
+
+  deplacement(x,y)
+
+
+
+quete(titre, description, niveau_requis,recompense,lieu_quete,etat_quete)
+nom
+recompense
+description
+lieuDeclenchement 
+niveauMinRequis 
+etatquete 
+active 
+monstre
+
+methode :
+    verifier_niveau_joueur()
+    accepter_quete()
+    combattre_monstre() 
+      combattre_boss()#après avoir battu un nbre de monstres donnes
+    quete_termine()# si boss monstre vaincu
+    donner_recompense()
+    
+Recompense(or, diamant, objetspecial,exp)# classe
+methode :
+  afficher_recompense()
+
+
+ 
+
+
+
+
+    
+    
+
+
 
 
 inventaire(personnage) :
       personnage
       dictionnaire {element : qtt}
 
-methode : voire inventaire(personnage)
-          ajouter elemnt(personnage)
+methode :
+          verifierTailleInventaire()
+          voire inventaire(personnage)
+          ajouter element(personnage)
           supprimer element(personnage)
+
+
+
+
 
 boutique():
   dictionnaire {element : [prix, qtt] }
@@ -35,12 +114,32 @@ methode : voir boutqiue
           acheter element
 
 
+
+
+
+
+
+
+
 carte :
  taille
  {region : taille}
  {personne : emplacemnt}
 
 méthode : voir personne sur carte(region)
-          voir personne utour de qlq1(personne)
+          voir personne autour de qlq1(personne)
           voir carte
       
+
+
+
+
+
+
+Gameplay :
+
+ecran d'acceuil 
+selction du personnage / ecran de creation / suppression / edition des personnages
+systeme de sauvegarde via des json
+ecran de choix : deplacement du personnage ou action(achat combat etc)
+ecran de combat

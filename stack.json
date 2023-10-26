@@ -1,0 +1,155 @@
+{
+    "armes": [
+        {
+            "nom": "Épée longue",
+            "type": "épée",
+            "description": "Une solide épée longue en acier.",
+            "force": 10,
+            "portee": "courte",
+            "poids": 5.0,
+            "valeur": 50
+        },
+        {
+            "nom": "Arc de chasse",
+            "type": "arc",
+            "description": "Un arc en bois idéal pour la chasse.",
+            "force": 8,
+            "portee": "longue",
+            "poids": 2.0,
+            "valeur": 40
+        },
+        {
+            "nom": "Dague empoisonnée",
+            "type": "dague",
+            "description": "Une petite dague avec une lame empoisonnée.",
+            "force": 6,
+            "portee": "courte",
+            "effet_poison": true,
+            "poids": 1.0,
+            "valeur": 60
+        },
+        {
+            "nom": "Bâton magique",
+            "type": "bâton",
+            "description": "Un bâton orné de runes magiques.",
+            "force": 12,
+            "portee": "moyenne",
+            "effet_magique": true,
+            "poids": 3.0,
+            "valeur": 80
+        }
+    ],
+
+
+
+    
+    "armures": [
+        {
+            "nom": "Armure de plates",
+            "type": "armure lourde",
+            "description": "Une solide armure de plates en acier.",
+            "defense": 15,
+            "poids": 20.0,
+            "valeur": 100
+        },
+        {
+            "nom": "Cotte de mailles",
+            "type": "armure intermédiaire",
+            "description": "Une cotte de mailles bien ouvragée pour une protection équilibrée.",
+            "defense": 12,
+            "poids": 15.0,
+            "valeur": 80
+        },
+        {
+            "nom": "Armure de cuir renforcé",
+            "type": "armure légère",
+            "description": "Une armure de cuir renforcé pour une grande agilité.",
+            "defense": 8,
+            "poids": 10.0,
+            "valeur": 60
+        },
+        {
+            "nom": "Robe d'apprenti sorcier",
+            "type": "robe magique",
+            "description": "Une robe d'apprenti sorcier ornée de runes magiques.",
+            "defense": 5,
+            "effet_magique": true,
+            "poids": 5.0,
+            "valeur": 120
+        }
+    ],
+
+
+
+    
+    "pouvoirs": [
+        {
+            "nom": "Boule de feu",
+            "type": "magie offensive",
+            "description": "Lance une boule de feu en direction de l'ennemi.",
+            "force": 15,
+            "cout_mp": 10
+        },
+        {
+            "nom": "Guérison légère",
+            "type": "magie curative",
+            "description": "Soigne légèrement les blessures du lanceur.",
+            "force": 8,
+            "cout_mp": 5
+        },
+        {
+            "nom": "Frappe foudroyante",
+            "type": "attaque physique",
+            "description": "Une attaque physique puissante chargée d'électricité.",
+            "force": 20,
+            "cout_mp": 0
+        },
+        {
+            "nom": "Invisibilité",
+            "type": "sort de dissimulation",
+            "description": "Permet de devenir invisible aux yeux des ennemis.",
+            "effet_special": "invisibilité",
+            "cout_mp": 15
+        }
+    ],
+
+
+
+
+    
+    "types_personnages": [
+        {
+            "nom": "Guerrier",
+            "pv_max": 100,
+            "mp_max": 20,
+            "force": 15,
+            "liste_pouvoirs": ["Coup d'épée", "Bouclier défensif"],
+            "defense": 10
+        },
+        {
+            "nom": "Mage",
+            "pv_max": 80,
+            "mp_max": 50,
+            "force": 10,
+            "liste_pouvoirs": ["Boule de feu", "Guérison légère"],
+            "defense": 5
+        },
+        {
+            "nom": "Voleur",
+            "pv_max": 90,
+            "mp_max": 30,
+            "force": 12,
+            "liste_pouvoirs": ["Attaque furtive", "Camouflage"],
+            "defense": 8
+        },
+        {
+            "nom": "Barbare",
+            "pv_max": 120,
+            "mp_max": 10,
+            "force": 20,
+            "liste_pouvoirs": ["Frappe foudroyante", "Rage"],
+            "defense": 15
+        }
+    ]
+    
+}

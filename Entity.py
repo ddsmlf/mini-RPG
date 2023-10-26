@@ -1,24 +1,34 @@
 import json
 
 class Entity:
-    def __init__(self, nom, classe, pv_max, pv, mp_max, mp, force, armure, arme, liste_pouvoirs, defense, emplacement):
+    def __init__(self, nom, classe):
         self.nom = nom
         self.classe = classe
-        self.pv_max = pv_max
-        self.pv = pv
-        self.mp_max = mp_max
-        self.mp = mp
-        self.force = force
-        self.armure = armure
-        self.arme = arme
-        self.liste_pouvoirs = liste_pouvoirs
-        self.defense = defense
-        self.emplacement = emplacement
+        self.emplacement = (0,0)
+        
+        # Charge les caractéristiques à partir du fichier "stack.json"
+        with open("stack.json", "r") as fichier_stack:
+            data = json.load(fichier_stack)
+            types_personnages = data.get("types_personnages")
+            for type_personnage in types_personnages:
+                if type_personnage["nom"] == self.classe:
+                    self.pv_max = type_personnage["pv_max"]
+                    self.mp_max = type_personnage["mp_max"]
+                    self.force = type_personnage["force"]
+                    self.liste_pouvoirs = type_personnage["liste_pouvoirs"]
+                    self.defense = type_personnage["defense"]
+        self.pv = self.pv_max
+        self.mp = self.mp_max
 
     def combat(self, action, cible, player, competence=None):
         pass
-        # sauvegarde des attributs de l'entité dans un fichier json
+        # Sauvegarde des attributs de l'entité dans un fichier JSON
 
+    def deplacer(self, direction):
+        pass
+
+    def changer_tenue(self, tenue):
+        pass
 
     def sauvegarder(self):
         sauvegarde = {}
@@ -29,8 +39,6 @@ class Entity:
             "mp_max": self.mp_max,
             "mp": self.mp,
             "force": self.force,
-            "armure": self.armure,
-            "arme": self.arme,
             "liste_pouvoirs": self.liste_pouvoirs,
             "defense": self.defense,
             "emplacement": self.emplacement
@@ -46,4 +54,3 @@ class Entity:
 
         with open("save.json", "w") as fichier_sauvegarde:
             json.dump(sauvegarde_precedente, fichier_sauvegarde, indent=4)
-

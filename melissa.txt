@@ -1,0 +1,46 @@
+
+
+personnnage(nom, type) 
+  nom
+  type
+  pv max
+  pv 
+  mp
+  force
+  equipement_actif
+  liste des pouvoirs
+  deffence
+  inventaire
+  emplacement
+  argent
+  lvl
+
+methode : combat(type_attaque, adversaire, accesoire)
+          changement(equiepement)
+          deplacement(x,y)
+
+
+inventaire(personnage) :
+      personnage
+      dictionnaire {element : qtt}
+
+methode : voire inventaire(personnage)
+          ajouter elemnt(personnage)
+          supprimer element(personnage)
+
+boutique():
+  dictionnaire {element : [prix, qtt] }
+
+methode : voir boutqiue
+          acheter element
+
+
+carte :
+ taille
+ {region : taille}
+ {personne : emplacemnt}
+
+méthode : voir personne sur carte(region)
+          voir personne utour de qlq1(personne)
+          voir carte
+      
